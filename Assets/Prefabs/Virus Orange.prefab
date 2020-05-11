@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4346218484658345133}
   - component: {fileID: 4346218484658345132}
   - component: {fileID: -736769526879889218}
+  - component: {fileID: 1706490824179385291}
   m_Layer: 10
   m_Name: Virus Orange
   m_TagString: Virus Orange
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0630905cbe14e3f4897c7197cebe164c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b8c2edf505a5054096b252df82fd417, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,3 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6edca0a1a8c4543bb8265d67782040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1706490824179385291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346218484658345171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038cafafd955abd49864de52128a9d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: Orange
+  lifePoints: 150

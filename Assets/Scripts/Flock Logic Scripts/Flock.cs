@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+// Todo: Maybe i need change the agents property to private. 
+
 public class Flock : MonoBehaviour
 {
     public FlockAgent agentPrefab;
@@ -13,7 +15,7 @@ public class Flock : MonoBehaviour
 
     [Range(1, 500)] public int startingCount = 250;
     private const float AgentDensity = 0.08f;
-
+    
     [Range(1f, 100f)] public float driveFactor = 10f;
     [Range(1f, 100f)] public float maxSpeed = 5f; 
     [Range(1f, 10f)] public float neighborRadius = 1.5f;
@@ -23,6 +25,8 @@ public class Flock : MonoBehaviour
     private float _squareNeighborRadius;
     private float _squareAvoidanceRadius;
 
+    private int _agentsCount;
+    
     public float SquareAvoidanceRadius
     {
         get { return _squareAvoidanceRadius; }
@@ -34,6 +38,8 @@ public class Flock : MonoBehaviour
         _squareNeighborRadius = neighborRadius * neighborRadius;
         _squareAvoidanceRadius = _squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
+        _agentsCount = startingCount;
+        
         for (int i = 0; i < startingCount; i++)
         {
             FlockAgent newAgent = Instantiate(
@@ -65,23 +71,6 @@ public class Flock : MonoBehaviour
         }
     }
 
-    // private void FixedUpdate()
-    // {
-    //     foreach (var agent in agents)
-    //     {
-    //         List<Transform> context = GetNearbyObjects(agent);
-    //         
-    //         
-    //         Vector2 move = behavior.CalculateMove(agent, context, this);
-    //         move *= driveFactor;
-    //         if (move.sqrMagnitude > _squareMaxSpeed)
-    //         {
-    //             move = move.normalized * maxSpeed;
-    //         }
-    //         agent.Move(move);
-    //     }
-    // }
-
     private List<Transform> GetNearbyObjects(FlockAgent agent)
     {
         List<Transform> context = new List<Transform>();
@@ -94,5 +83,11 @@ public class Flock : MonoBehaviour
             }
         }
         return context;
+    }
+
+    public void RemoveAgent(FlockAgent agent)
+    {
+        agents.Remove(agent);
+        _agentsCount--;
     }
 }

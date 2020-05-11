@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4346218484658345133}
   - component: {fileID: 4346218484658345132}
   - component: {fileID: -736769526879889218}
+  - component: {fileID: 4885087946178440540}
   m_Layer: 10
   m_Name: Virus Yellow
   m_TagString: Virus Yellow
@@ -133,3 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6edca0a1a8c4543bb8265d67782040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4885087946178440540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346218484658345171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038cafafd955abd49864de52128a9d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: Yellow
+  lifePoints: 250

@@ -11,11 +11,6 @@ namespace Filter_Scripts
             List<Transform> filtered = new List<Transform>();
             foreach (var transform in original)
             {
-                if (transform.name == "Player")
-                {
-                    Debug.Log("Found Player");
-                }
-
                 if (transform.CompareTag(agent.tag))
                 {
                     filtered.Add(transform);
