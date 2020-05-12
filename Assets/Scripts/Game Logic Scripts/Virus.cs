@@ -6,6 +6,7 @@ namespace Game_Logic_Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(FlockAgent))]
+    [RequireComponent(typeof(CircleCollider2D))]
     public class Virus : MonoBehaviour
     {
         public string color;

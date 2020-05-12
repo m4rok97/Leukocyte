@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virus Flock Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 3547328892382466598, guid: 374b5e3ff4e4842478c144d8213cf47e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3547328892382466616, guid: 374b5e3ff4e4842478c144d8213cf47e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,6 +566,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virus Flock Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 3547328892382466598, guid: dea10556894815642a82fb57fec9c2c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3547328892382466616, guid: dea10556894815642a82fb57fec9c2c5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -768,6 +778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leucocite Flock
       objectReference: {fileID: 0}
+    - target: {fileID: 1258329752264712885, guid: 60d49ca665d474f4db66727668ca89fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1258329752264712887, guid: 60d49ca665d474f4db66727668ca89fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -905,12 +920,12 @@ PrefabInstance:
     - target: {fileID: 2867548919753793307, guid: c74408d608014174fad63b75ebba6e31,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.8000001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2867548919753793307, guid: c74408d608014174fad63b75ebba6e31,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2867548919753793309, guid: c74408d608014174fad63b75ebba6e31,
         type: 3}
@@ -961,6 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: colors.Array.data[3].g
       value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961218893124195664, guid: c74408d608014174fad63b75ebba6e31,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c74408d608014174fad63b75ebba6e31, type: 3}

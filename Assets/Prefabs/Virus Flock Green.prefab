@@ -47,7 +47,7 @@ MonoBehaviour:
     type: 3}
   agents: []
   behavior: {fileID: 11400000, guid: f84133f6efc054a4e882b0a30dd0078e, type: 2}
-  startingCount: 5
+  startingCount: 15
   driveFactor: 10
   maxSpeed: 5
   neighborRadius: 1.5

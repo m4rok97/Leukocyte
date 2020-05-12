@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7873105849843961479}
   - component: {fileID: 203232078928154146}
   - component: {fileID: 4524820492564985236}
+  - component: {fileID: 7627216896826271192}
   m_Layer: 11
   m_Name: Blood Cell
   m_TagString: Untagged
@@ -120,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.4549999
+--- !u!114 &7627216896826271192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873105849843961478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275a220a2a364b5aa88eff6caac81e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePoints: 1500

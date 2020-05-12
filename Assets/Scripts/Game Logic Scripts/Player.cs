@@ -6,7 +6,7 @@ namespace Game_Logic_Scripts
     [RequireComponent(typeof(SpriteRenderer))]
     public class Player : MonoBehaviour
     {
-        [Range(0, 10)] public float moveSpeed = 2f;
+        [Range(0, 20)] public float moveSpeed = 2f;
         private Rigidbody2D _rigidbody;
 
         private Color[] _colors;
