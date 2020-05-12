@@ -25,12 +25,13 @@ public class Flock : MonoBehaviour
     private float _squareNeighborRadius;
     private float _squareAvoidanceRadius;
 
-    private int _agentsCount;
     
     public float SquareAvoidanceRadius
     {
         get { return _squareAvoidanceRadius; }
     }
+
+    public int AgentsCount => agents.Count;
 
     void Start()
     {
@@ -38,8 +39,6 @@ public class Flock : MonoBehaviour
         _squareNeighborRadius = neighborRadius * neighborRadius;
         _squareAvoidanceRadius = _squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
-        _agentsCount = startingCount;
-        
         for (int i = 0; i < startingCount; i++)
         {
             FlockAgent newAgent = Instantiate(
@@ -88,6 +87,5 @@ public class Flock : MonoBehaviour
     public void RemoveAgent(FlockAgent agent)
     {
         agents.Remove(agent);
-        _agentsCount--;
     }
 }

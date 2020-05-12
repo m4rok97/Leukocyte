@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Controllers_Scripts;
 using UnityEngine;
 
 namespace Game_Logic_Scripts
@@ -11,23 +12,23 @@ namespace Game_Logic_Scripts
         public int lifePoints;
         private int _currentLifePoints;
         private CircleCollider2D _circleCollider;
+        private GameController _gameController;
 
         public void Start()
         {
             _currentLifePoints = lifePoints;
             _circleCollider = GetComponent<CircleCollider2D>();
+            _gameController = FindObjectOfType<GameController>();
         }
         
         void FixedUpdate()
         {
-            print("Entra al script de blood cell");
             Collider2D[] neighbors = Physics2D.OverlapCircleAll(transform.position, _circleCollider.radius + 1.5f);
             foreach (var neighbor in neighbors)
             {
                 string neighborTag = neighbor.tag;
                 if (neighbor.tag.Contains("Virus"))
                 {
-                    print("Entra a receive Damage");
                     ReceiveDamage();                        
                 }
             }
@@ -36,7 +37,6 @@ namespace Game_Logic_Scripts
         private void ReceiveDamage()
         {
             _currentLifePoints--;
-            print(gameObject.name + " " + _currentLifePoints);
             if (_currentLifePoints <= 0)
             {
                 Die();
@@ -45,6 +45,7 @@ namespace Game_Logic_Scripts
 
         private void Die()
         {
+            _gameController.RemoveBloodCell(this);
             Destroy(gameObject);
         }
     }
