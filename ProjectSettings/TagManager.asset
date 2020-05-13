@@ -11,6 +11,9 @@ TagManager:
   - Virus Green
   - Virus Yellow
   - Virus Orange
+  - Game Lose Screen
+  - Game Won Screen
+  - Level Won Screen
   layers:
   - Default
   - TransparentFX

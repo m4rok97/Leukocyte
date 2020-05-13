@@ -18,9 +18,13 @@ namespace Game_Logic_Scripts
         {
             _currentLifePoints = lifePoints;
             _circleCollider = GetComponent<CircleCollider2D>();
+        }
+
+        public void OnEnable()
+        {
             _gameController = FindObjectOfType<GameController>();
         }
-        
+
         void FixedUpdate()
         {
             Collider2D[] neighbors = Physics2D.OverlapCircleAll(transform.position, _circleCollider.radius + 1.5f);

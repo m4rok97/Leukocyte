@@ -14,10 +14,8 @@ namespace Filter_Scripts
             List<Transform> filtered = new List<Transform>();
             foreach (var transform in original)
             {
-                Debug.Log(transform.tag);
                 if (transform.CompareTag(tag))
                 {
-                    Debug.Log("Entra con" );
                     filtered.Add(transform);
                 }
             }
