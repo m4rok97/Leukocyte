@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 namespace Behavior_Scripts
 {
 
@@ -19,7 +19,12 @@ namespace Behavior_Scripts
             int nAvoid = 0;
             
             List<Transform> filteredContext = filter == null ? context : filter.Filter(agent, context);
-            
+
+            if (filter.ToString().Contains("Green"))
+            {
+                Debug.Log("Break Point");
+            }
+
             foreach (var transform in filteredContext)
             {
                 if (Vector2.SqrMagnitude(transform.position - agent.transform.position) < flock.SquareAvoidanceRadius)
@@ -33,7 +38,6 @@ namespace Behavior_Scripts
             {
                 avoidanceMove /= nAvoid;
             }
-
             return avoidanceMove;
         }
     }

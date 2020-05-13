@@ -10,11 +10,14 @@ namespace Filter_Scripts
     
         public override List<Transform> Filter(FlockAgent agent, List<Transform> original)
         {
+
             List<Transform> filtered = new List<Transform>();
             foreach (var transform in original)
             {
+                Debug.Log(transform.tag);
                 if (transform.CompareTag(tag))
                 {
+                    Debug.Log("Entra con" );
                     filtered.Add(transform);
                 }
             }

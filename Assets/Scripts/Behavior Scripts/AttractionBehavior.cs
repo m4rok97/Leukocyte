@@ -21,7 +21,7 @@ namespace Behavior_Scripts
             foreach (var transform in filteredContext)
             {
                 Vector2 currentMove = transform.position - agent.transform.position;
-                float currentSqrDistance = currentMove.sqrMagnitude;
+                float currentSqrDistance = currentMove.sqrMagnitude - flock.SquareAvoidanceRadius;
                 if (currentSqrDistance < minSqrDistance)
                 {
                     minSqrDistance = currentSqrDistance;

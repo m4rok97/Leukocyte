@@ -53,7 +53,7 @@ public class Flock : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         foreach (var agent in agents)
         {
