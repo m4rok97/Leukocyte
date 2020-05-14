@@ -288,7 +288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Has perdido, presiona enter para volver a intertarlo.
+  m_Text: "Has perdido, presiona enter para volver al men\xFA."
 --- !u!1 &5393071376497946715
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Has Completado el juego. presiona enter para volver a empezar
+  m_Text: "Has terminado el juego, presiona enter para volver al men\xFA"
 --- !u!1 &5393071376648513477
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSceneIndex: 1
   onSurvivalMode: 0
+  survivalGameOverUI: {fileID: 0}
 --- !u!1 &5393071376796488563
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,4 +603,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Has completado el nivel. presiona enter para pasar al siguiente.
+  m_Text: Has  terminado el nivel, presiona enter para pasar al siguiente.
