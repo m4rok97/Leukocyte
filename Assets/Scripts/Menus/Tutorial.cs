@@ -11,6 +11,7 @@ namespace Menus
         public GameObject slide1;
         public GameObject slide2;
         public GameObject slide3;
+        public GameObject slide4;
         public GameObject player;
 
         public void Next1()
@@ -25,6 +26,12 @@ namespace Menus
             slide2.SetActive(false);
             slide3.SetActive(true);
             player.SetActive(false);
+        }
+
+        public void Next3()
+        {
+            slide3.SetActive(false);
+            slide4.SetActive(true);
         }
 
         public void BackToMenu()
