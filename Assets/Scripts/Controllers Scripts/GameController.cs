@@ -19,11 +19,13 @@ namespace Controllers_Scripts
         private List<BloodCell> _bloodCells;
         private List<Flock> _virusFlocks;
         public int currentSceneIndex;
-        private bool _changingScene;
         private GameObject _gameLoseUI;
         private GameObject _gameWonUI;
         private GameObject _levelWonUI;
+        
+        public bool onSurvivalMode;
 
+        public GameObject survivalGameOverUI;
         // public static GameController Instance
         // {
         //     get => _instance == null ? new GameController() : _instance;
@@ -49,7 +51,6 @@ namespace Controllers_Scripts
         {
             _bloodCells = FindObjectsOfType<BloodCell>().ToList();
             _virusFlocks = FindObjectsOfType<Flock>().ToList().Where(x => x.name.Contains("Virus")).ToList();
-            _changingScene = false;
             _isGameOver = false;
             _gameLoseUI = transform.GetChild(0).gameObject;
             _levelWonUI = transform.GetChild(1).gameObject;
@@ -69,46 +70,62 @@ namespace Controllers_Scripts
         void Update()
         // Update is called once per frame
         {
-            if (IsGameWon())
+            if (onSurvivalMode)
             {
-                if (currentSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+                if (IsGameLose())
                 {
-                    _levelWonUI.SetActive(true);
-                    if (Input.GetKeyUp(KeyCode.Return))
-                    {
-                        // StartCoroutine(LoadNextAsyncScene());    
-                        SceneManager.LoadScene(currentSceneIndex + 1);
-                    }
-                }
-
-                else
-                {
-                    _gameWonUI.SetActive(true);
+                    survivalGameOverUI.SetActive(true);
                     if (Input.GetKeyUp(KeyCode.Return))
                     {
                         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
                     }
                 }
-
-
             }
-            
-            if (IsGameLose())
+            else
             {
-                print("Looooser");
-                _gameLoseUI.SetActive(true);
-                if (Input.GetKeyUp(KeyCode.Return))
+                if (IsGameWon())
                 {
-                    SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+                    if (currentSceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+                    {
+                        _levelWonUI.SetActive(true);
+                        if (Input.GetKeyUp(KeyCode.Return))
+                        {
+                            // StartCoroutine(LoadNextAsyncScene());    
+                            SceneManager.LoadScene(currentSceneIndex + 1);
+                        }
+                    }
+
+                    else
+                    {
+                        _gameWonUI.SetActive(true);
+                        if (Input.GetKeyUp(KeyCode.Return))
+                        {
+                            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+                        }
+                    }
+
+
+                }
+            
+                if (IsGameLose())
+                {
+                    print("Looooser");
+                    _gameLoseUI.SetActive(true);
+                    if (Input.GetKeyUp(KeyCode.Return))
+                    {
+                        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+                    }
+                }
+            
+            
+                _isGameOver = IsGameOver();
+                if (_isGameOver)
+                {
+                    print(IsGameWon() ? "You Win" : "You Lose");
                 }
             }
-            
-            
-            _isGameOver = IsGameOver();
-            if (_isGameOver)
-            {
-                print(IsGameWon() ? "You Win" : "You Lose");
-            }
+
+           
         }
 
         private bool IsGameOver()

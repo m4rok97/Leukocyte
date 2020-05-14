@@ -13,7 +13,11 @@ namespace Game_Logic_Scripts
         private int _currentLifePoints;
         private CircleCollider2D _circleCollider;
         private GameController _gameController;
-
+        public bool isRegenerative;
+        private float _nextRegenerateTime;
+        [Range(1,10)]public int secondsBetweenRegenerate = 5;
+        [Range(1, 50)]public int regenerateAmount = 10;
+        
         public void Start()
         {
             _currentLifePoints = lifePoints;
@@ -23,6 +27,21 @@ namespace Game_Logic_Scripts
         public void OnEnable()
         {
             _gameController = FindObjectOfType<GameController>();
+        }
+
+        void Update()
+        {
+            if (isRegenerative && Time.time > _nextRegenerateTime)
+            {
+                    Regenerate(regenerateAmount);
+                    _nextRegenerateTime = Time.time + secondsBetweenRegenerate;
+            }
+        }
+
+        void Regenerate(int incLifePoints)
+        {
+            _currentLifePoints = Math.Min(_currentLifePoints + incLifePoints, lifePoints);
+            print("LP: " + _currentLifePoints);
         }
 
         void FixedUpdate()

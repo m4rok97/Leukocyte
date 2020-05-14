@@ -25,6 +25,12 @@ public class Flock : MonoBehaviour
     private float _squareNeighborRadius;
     private float _squareAvoidanceRadius;
 
+    public bool _generateOverTime;
+    public int minSecondsBetweenSpawns;
+    public int maxSecondsBetweenSpawns;
+    public int secondsToMaxDificulty = 120;
+    [Range(10, 100)]public int maxAmountOfFlockAgents = 50;
+    private float _nextSpawnTime;
     
     public float SquareAvoidanceRadius
     {
@@ -51,6 +57,33 @@ public class Flock : MonoBehaviour
             newAgent.Initialize(this);
             agents.Add(newAgent);
         }
+    }
+
+    private void Update()
+    {
+        if (_generateOverTime)
+        {
+            float difficulty = Mathf.Clamp01(Time.time / secondsToMaxDificulty);
+            if (Time.timeSinceLevelLoad  > _nextSpawnTime)
+            {
+                float secondsBetweenSpawns = Mathf.Lerp(maxSecondsBetweenSpawns, minSecondsBetweenSpawns, difficulty);
+                _nextSpawnTime = Time.time + secondsBetweenSpawns;
+                if (agents.Count < 50)
+                {
+                    FlockAgent newAgent = Instantiate(
+                        agentPrefab,
+                        Random.insideUnitCircle * (startingCount * AgentDensity) + (Vector2)transform.position,
+                        Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
+                        transform
+                    );
+                    newAgent.name = "Agent" + Time.time;
+                    newAgent.Initialize(this);
+                    agents.Add(newAgent);
+                }
+            }
+        }
+
+        
     }
 
     void FixedUpdate()
